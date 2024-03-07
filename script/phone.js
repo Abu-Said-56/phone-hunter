@@ -89,11 +89,11 @@ const displayPhone = (phones,isShowall) =>{
 
         // handle showDetails
         const showDetailsBtn = async(id) =>{
-          console.log('showDetails',id);
+         // console.log('showDetails',id);
 
           const res = await fetch(` https://openapi.programming-hero.com/api/phone/${id}`);
           const data = await res.json();
-          console.log(data);
+          //console.log(data);
           const phone = data.data;
 
           showPhoneDetails(phone);
@@ -102,7 +102,7 @@ const displayPhone = (phones,isShowall) =>{
         // show phone details
 
         const showPhoneDetails = (phone) =>{
-          console.log(phone);
+          //console.log(phone);
           const phoneName = document.getElementById('show_details_phone_name');
           phoneName.innerText = phone.name;
 
@@ -115,6 +115,7 @@ const displayPhone = (phones,isShowall) =>{
             <p class=" text-xl">Chipset:${phone.mainFeatures?.chipSet}</p>
             <p class=" text-xl">Memory:${phone.mainFeatures?.memory}</p>
             <p class=" text-xl">Slug:${phone.slug}</p>
+            <p class=" text-xl">GPS: ${phone?.others?.GPS || 'No GPS Available In This Device'}</p>
             
           `
 
